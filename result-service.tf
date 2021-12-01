@@ -17,6 +17,6 @@ resource kubernetes_service "result-svc" {
     selector = {
       app = "result"
     }
-    type = "NodePort"
+    type = "LoadBalancer"
   }
 }

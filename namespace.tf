@@ -1,5 +1,5 @@
 resource "kubernetes_namespace" "vote" {
-  metadata = {
+  metadata  {
     name = "vote"
   }
 }

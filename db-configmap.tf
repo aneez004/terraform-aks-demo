@@ -1,7 +1,7 @@
 resource "kubernetes_config_map" "cm" {
   metadata {
     name = "db-configmap"
-    namespace = vote
+    namespace = "vote"
   }
 
   data = {

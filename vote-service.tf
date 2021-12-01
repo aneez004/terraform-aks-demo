@@ -18,6 +18,6 @@ resource kubernetes_service "vote-svc" {
     selector = {
       app = "vote"
     }
-    type = "NodePort"
+    type = "LoadBalancer"
   }
 }

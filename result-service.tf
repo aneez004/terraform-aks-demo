@@ -1,23 +1,22 @@
 resource kubernetes_service "result-svc" {
-  metadata = {
-    "labels" = {
-      "app" = "result"
+  metadata  {
+    labels = {
+      app = "result"
     }
-    "name" = "result"
-    "namespace" = "vote"
+    name = "result"
+    namespace = "vote"
   }
-  spec = {
-    "ports" = [
-      {
-        "name" = "result-service"
-        "nodePort" = 31001
-        "port" = 5001
-        "targetPort" = 80
-      },
-    ]
-    "selector" = {
-      "app" = "result"
+  spec  {
+    port {
+        name = "result-service"
+        node_port = 31001
+        port = 5001
+        target_port = 80
+      }
+    
+    selector = {
+      app = "result"
     }
-    "type" = "NodePort"
+    type = "NodePort"
   }
 }

@@ -1,22 +1,22 @@
 resource kubernetes_service "redis-svc" {
-  metadata = {
-    "labels" = {
-      "app" = "redis"
+  metadata  {
+    labels = {
+      app = "redis"
     }
-    "name" = "redis"
-    "namespace" = "vote"
+    name = "redis"
+    namespace = "vote"
   }
-  spec = {
-    "ports" = [
-      {
-        "name" = "redis-service"
-        "port" = 6379
-        "targetPort" = 6379
-      },
-    ]
-    "selector" = {
-      "app" = "redis"
+  spec  {
+    port {
+      
+        name = "redis-service"
+        port = 6379
+        target_port = 6379
+      }
+    
+    selector = {
+      app = "redis"
     }
-    "type" = "ClusterIP"
+    type = "ClusterIP"
   }
 }

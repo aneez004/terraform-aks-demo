@@ -1,37 +1,37 @@
 resource kubernetes_deployment "vote-deploy" {
-  metadata = {
-    "labels" = {
-      "app" = "vote"
+  metadata  {
+    labels = {
+      app = "vote"
     }
-    "name" = "vote"
-    "namespace" = "vote"
+    name = "vote"
+    namespace = "vote"
   }
-  spec = {
-    "replicas" = 1
-    "selector" = {
-      "matchLabels" = {
-        "app" = "vote"
+  spec  {
+    replicas = 1
+    selector  {
+      match_labels = {
+        app = "vote"
       }
     }
-    "template" = {
-      "metadata" = {
-        "labels" = {
+    template  {
+      metadata  {
+        labels = {
           "app" = "vote"
         }
       }
-      "spec" = {
-        "containers" = [
-          {
-            "image" = "dockersamples/examplevotingapp_vote:before"
-            "name" = "vote"
-            "ports" = [
-              {
-                "containerPort" = 80
-                "name" = "vote"
-              },
-            ]
-          },
-        ]
+      spec  {
+        container {
+          
+            image = "dockersamples/examplevotingapp_vote:before"
+            name = "vote"
+            port {
+              
+                container_port = 80
+                name = "vote"
+              }
+            
+          }
+        
       }
     }
   }

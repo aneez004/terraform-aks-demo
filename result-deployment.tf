@@ -1,37 +1,37 @@
 resource kubernetes_deployment "result-deploy" {
-  metadata = {
-    "labels" = {
-      "app" = "result"
+  metadata  {
+    labels = {
+      app = "result"
     }
-    "name" = "result"
-    "namespace" = "vote"
+    name = "result"
+    namespace = "vote"
   }
-  spec = {
-    "replicas" = 1
-    "selector" = {
-      "matchLabels" = {
-        "app" = "result"
+  spec  {
+    replicas = 1
+    selector  {
+      match_labels = {
+        app = "result"
       }
     }
-    "template" = {
-      "metadata" = {
-        "labels" = {
+    template  {
+      metadata  {
+        labels = {
           "app" = "result"
         }
       }
-      "spec" = {
-        "containers" = [
-          {
-            "image" = "dockersamples/examplevotingapp_result:before"
-            "name" = "result"
-            "ports" = [
-              {
-                "containerPort" = 80
-                "name" = "result"
-              },
-            ]
-          },
-        ]
+      spec  {
+        container  {
+          
+            image = "dockersamples/examplevotingapp_result:before"
+            name = "result"
+            port {
+              
+                container_port = 80
+                name = "result"
+              }
+            
+          }
+        
       }
     }
   }

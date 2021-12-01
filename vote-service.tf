@@ -1,23 +1,23 @@
 resource kubernetes_service "vote-svc" {
-  metadata = {
-    "labels" = {
+  metadata  {
+    labels = {
       "app" = "vote"
     }
-    "name" = "vote"
-    "namespace" = "vote"
+    name = "vote"
+    namespace = "vote"
   }
-  spec = {
-    "ports" = [
-      {
-        "name" = "vote-service"
-        "nodePort" = 31000
-        "port" = 5000
-        "targetPort" = 80
-      },
-    ]
-    "selector" = {
-      "app" = "vote"
+  spec  {
+    port {
+      
+        name = "vote-service"
+        node_port = 31000
+        port = 5000
+        target_port = 80
+      }
+    
+    selector = {
+      app = "vote"
     }
-    "type" = "NodePort"
+    type = "NodePort"
   }
 }

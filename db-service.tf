@@ -1,22 +1,22 @@
 resource kubernetes_service "db-svc" {
-  metadata = {
-    "labels" = {
-      "app" = "db"
+  metadata  {
+    labels = {
+      app = "db"
     }
-    "name" = "db"
-    "namespace" = "vote"
+    name = "db"
+    namespace = "vote"
   }
-  spec = {
-    "ports" = [
-      {
-        "name" = "db-service"
-        "port" = 5432
-        "targetPort" = 5432
-      },
-    ]
-    "selector" = {
-      "app" = "db"
+  spec  {
+    port  {
+      
+        name = "db-service"
+        port = 5432
+        target_port = 5432
+      }
+    
+    selector = {
+      app = "db"
     }
-    "type" = "ClusterIP"
+    type = "ClusterIP"
   }
 }
